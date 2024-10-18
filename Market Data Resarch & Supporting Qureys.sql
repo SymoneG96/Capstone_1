@@ -13,8 +13,7 @@ WHERE income_range IN ('0 - $10,000', '$200,000 +');
 -- Gives me insight on why these states may have a higher increase in obtaing insurance throughout the years
 SELECT State, `Medicaid Enrollment Change (2013-2016)`
 FROM `health coverage amongst states`
-ORDER BY `Medicaid Enrollment Change (2013-2016)` DESC
-LIMIT 5;
+ORDER BY `Medicaid Enrollment Change (2013-2016)` DESC;
 
 -- Calculate the average uninsured rate change across all states between 2010 and 2015
 -- Provides inisght on insurnace coverage within all states / helps me dig futher into why things have changed
@@ -22,7 +21,8 @@ SELECT AVG(`Uninsured Rate Change (2010-2015)`) AS AverageUninsuredRateChange
 FROM `health coverage amongst states`;
 
 -- This query provides insights into the estimated number of uninsured individuals across different age groups and income brackets in Chicago.
--- A little  hard to follow due to mutiple tables that aren't directly related  but it shows me that although one cane be above the poverty line they still struggle to obtain insurance. Changed from % to numbers and I am unsure why.
+-- A little  hard to follow due to mutiple tables that aren't directly related  but it shows me that although one can be above the poverty line they still struggle to obtain insurance. Changed from % to numbers and I am unsure why.
+Use marketdataresearchrelatingtomyorganization; 
 SELECT * FROM  `selected characteristics of the uninsured in the united states`, `income and race`;
 SELECT  t1.`Label (Grouping)` AS age_group, t2.income_range, t1.`Chicago city, Illinois Total Uninsured Estimate` * (t2.black_or_african_american + t2.hispanic_or_latino) AS total_uninsured_estimate
 FROM `selected characteristics of the uninsured in the united states` AS t1
