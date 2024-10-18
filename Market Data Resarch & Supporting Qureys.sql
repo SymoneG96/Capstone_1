@@ -1,9 +1,9 @@
--- This query is being ran to filter out other states & provide insight on Health Insurance Coverage for the state of IL. 
+-- This query is to filter out other states & provide insight on Health Insurance Coverage for the state of IL. 
 -- From this query I can conclude that the states decision to expand Medicaid in 2016 likely contributed to the decrease in uninsured rates and the increase in Medicaid enrollment.
 SELECT * FROM marketdataresearchrelatingtomyorganization.`health coverage amongst states`
 WHERE State = 'Illinois ';
 
--- Highest and Lowest income ranges, due to nature of imported data & income in ranges, this was the most effective way of showing this.
+-- Highest and Lowest income ranges, due to nature of imported data & income in ranges
 -- This tells me that more african americans struggle with their income than Hispanic, but overall both struggle. 
 SELECT income_range, black_or_african_american, hispanic_or_latino
 FROM `income and race`
@@ -22,7 +22,7 @@ SELECT AVG(`Uninsured Rate Change (2010-2015)`) AS AverageUninsuredRateChange
 FROM `health coverage amongst states`;
 
 -- This query provides insights into the estimated number of uninsured individuals across different age groups and income brackets in Chicago.
--- A little  hard to follow due to mutiple tables that aren't directly related  but it shows me that although people are above the poverty line they still struggle to obtain insurance. Changed from % to numbers and I am unsure why.
+-- A little  hard to follow due to mutiple tables that aren't directly related  but it shows me that although one cane be above the poverty line they still struggle to obtain insurance. Changed from % to numbers and I am unsure why.
 SELECT * FROM  `selected characteristics of the uninsured in the united states`, `income and race`;
 SELECT  t1.`Label (Grouping)` AS age_group, t2.income_range, t1.`Chicago city, Illinois Total Uninsured Estimate` * (t2.black_or_african_american + t2.hispanic_or_latino) AS total_uninsured_estimate
 FROM `selected characteristics of the uninsured in the united states` AS t1
