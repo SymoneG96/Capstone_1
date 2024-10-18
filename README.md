@@ -1,0 +1,1 @@
+This project consists of  brainstorming word doc for a start up non for profit, supporting data sets in csv files, sql files demonstrating relations and insights from data market resarch, databse creation for my organization, & PP to sell my pitch.
